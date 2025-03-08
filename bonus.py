@@ -1,18 +1,19 @@
 import sys
 import numpy as np
 import matplotlib
-matplotlib.use('Qt5Agg')
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from train import load_data,compute_r2,normalization
 from predict import load_model_data
 
 def plot_data_only(mileages, prices):
-    plt.scatter(mileages, prices, label="orginal data")
-    plt.xlabel("Mileage")
-    plt.ylabel("Price")
-    plt.title("Mileage vs Price")
+    plt.scatter(mileages, prices, label="Original Data")
+    plt.xlabel("Mileage (km)")
+    plt.ylabel("Price (€)")
+    plt.title("Car Price vs Mileage")
     plt.legend()
-    plt.show()
+    plt.savefig("plot.png") 
+    print("Plot saved as plot.png")
 
 def plot_regression_line(mileages, prices,theta0, theta1,min_mile, max_mile,min_price, max_price):
     plt.scatter(mileages, prices, label="Data Points")
@@ -28,7 +29,8 @@ def plot_regression_line(mileages, prices,theta0, theta1,min_mile, max_mile,min_
     plt.plot(x_line, y_line, color='red', label="Regression Line")
     plt.title("Mileage vs. Price (with Regression Line)")
     plt.legend()
-    plt.show()
+    plt.savefig("plot_line.png") 
+    print("Plot saved as plot.png")
 
 def mean_absolute_percentage_error(mileages, prices, theta0, theta1):
     m = len(mileages)

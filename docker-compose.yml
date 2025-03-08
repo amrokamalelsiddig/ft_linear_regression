@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  linear_regression:
+    build: .
+    container_name: linear_regression
+    volumes:
+      - .:/app  
+    working_dir: /app
+    stdin_open: true
+    tty: true
