@@ -1,5 +1,4 @@
 import csv
-from scikit import sklearn_prediction
 
 
 def load_model_data(file_path="thetas.csv"):
@@ -31,8 +30,3 @@ if __name__ == "__main__":
     estimated_price = predict_price(mileage_val, theta0, theta1,min_mile, max_mile,min_price, max_price)
     print("my model :")
     print(f"Estimated price for mileage {mileage_val:.0f} is about {estimated_price:.2f}")
-    print("sklearn model :")
-    estimated_price_sk = sklearn_prediction(float(user_input))
-    print(f"Estimated price for mileage {mileage_val:.0f} is about {estimated_price_sk:.2f}")
-    delta = round(((estimated_price/estimated_price_sk * 100.00 ) - 100),2)
-    print(f"diffrenct between my model and sklearn = {delta} %")
